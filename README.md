@@ -7,3 +7,4 @@ The way FlexIO works is that you transfer your data to a series of buffered shif
 This example code shifts out data in parallel to pins 10-13 every 25 ns. In the latest version of Teensyduino (1.54), it requires no external libraries. 
 
 Here's an oscilloscope screenshot with channels 1,2,3,4 hooked to pins 10,12,11,13:
+![Oscilloscope output of the example sketch](https://github.com/easone/teensy4_FlexIO_parallel_example/blob/main/oscope_output.jpg?raw=true)
