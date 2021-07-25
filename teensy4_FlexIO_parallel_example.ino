@@ -85,9 +85,9 @@ void setup() {
   p->TIMCFG[0] = (T0_TIMOUT<<24) | (T0_TIMDEC<<20) | (T0_TIMRST<<16) | (T0_TIMDIS<<12) | (T0_TIMENA<<8) | (T0_TSTOP<<4) | (T0_TSTART<<1);
   p->TIMCTL[0] = (T0_TRGSEL<<24) | (T0_TRGPOL<<23) | (T0_TRGSRC<<22) | (T0_PINCFG<<16) | (T0_PINSEL<<8) | (T0_PINPOL<<7) | (T0_TIMOD<<0);
 
-  #define CLOCK_DIVIDER 6 // Shift clock frequency is 6 times slower than FlexIO clock = 80 MHz (12.5 ns width from positive to negative edge, 25 ns between shifts)
+  #define CLOCK_DIVIDER 12 // Shift frequency is 12 times slower than FlexIO clock = 40 MHz (25 ns between shifts)
   #define SHIFTS_PER_TRANSFER 8 // Shift out 8 times with every transfer = one 32-bit word = contents of Shifter 0
-  p->TIMCMP[0] = ((SHIFTS_PER_TRANSFER*2-1)<<8) | ((CLOCK_DIVIDER-1)<<0);
+  p->TIMCMP[0] = ((SHIFTS_PER_TRANSFER*2-1)<<8) | ((CLOCK_DIVIDER/2-1)<<0);
 
   Serial.println("FlexIO setup complete");
 
